@@ -118,6 +118,9 @@ class TypeMap(GraphQLTypeMap):
             values=values,
             name=type._meta.name,
             description=type._meta.description,
+            serialize=getattr(type, 'serialize', None),
+            parse_value=getattr(type, 'parse_value', None),
+            parse_literal=getattr(type, 'parse_literal', None),
         )
         return map
 
